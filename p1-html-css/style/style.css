@@ -1,0 +1,163 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body p {
+  font-size: 12px;
+}
+
+.main-header {
+  display: none;
+}
+
+.main-header h1 {
+  display: none;
+}
+
+.main-nav {
+  display: flex;
+  padding: 10px;
+  background: #004254;
+  color: #fbbb21;
+  flex-direction: column;
+}
+
+.main-nav a {
+  color: #fbbb21;
+  text-decoration: none;
+}
+
+.main-nav__logo {
+  display: flex;
+  align-items: center;
+  font-size: 0px;
+  margin: 0px 20px;
+}
+
+.main-nav__logo img {
+  max-height: 60px;
+}
+
+.main-nav__menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  flex-direction: column;
+}
+
+.main-nav__menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav__menu-item-link {
+  padding: 5px 20px;
+}
+
+.main-nav__menu-item-link:hover {
+  background-color: #b3c4d6;
+  color: #004254;
+  border-radius: 10px;
+}
+
+.grid {
+  padding: 10px;
+  background: #f6f8fa;
+}
+
+.grid__row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.grid__row-title {
+  margin: 5px 20px;
+  padding: 0px 15px;
+  color: #fbbb21;
+}
+
+.grid__content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.grid__column {
+  display: flex;
+  flex: 1;
+  background-color: white;
+  color: #004254;
+  border-radius: 15px;
+  padding: 0px 15px 15px;
+  margin: 0px 20px 20px;
+  flex-direction: column;
+}
+
+.grid__row-title {
+  font-size: 25px;
+}
+
+.grid__column-title {
+  font-size: 18px;
+}
+
+.grid__column a {
+  color: #fbbb21;
+}
+
+.grid__column a:visited {
+  color: #f48225;
+}
+
+.grid-footer {
+  display: flex;
+  background-color: #004254;
+  color: #fbbb21;
+  flex-direction: column;
+}
+
+.grid-footer__list {
+  list-style: none;
+  padding: 0;
+}
+
+.grid-footer a {
+  color: #fbbb21;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 992px) {
+  body p {
+    font-size: 16px;
+  }
+  .main-header {
+    display: flex;
+    justify-content: center;
+    background-color: #004254;
+    max-height: 150px;
+  }
+  .main-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .main-nav__logo {
+    margin: 0px;
+  }
+  .main-nav__menu {
+    flex-direction: row;
+    align-items: center;
+  }
+  .grid__content {
+    flex-direction: row;
+  }
+  .grid-footer {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    max-width: 1200px;
+  }
+}/*# sourceMappingURL=style.css.map */
