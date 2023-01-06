@@ -1,51 +1,43 @@
 console.log('This is index.js');
 
+// Defining view class
+class View {
+  constructor(path)
+  {
+    this._html = '';
+    this._path = path;
+  }
+
+  // Not needed
+  // get html () {
+  //   return this._html;
+  // }
+
+  // It returns a promise to be sure that html is loaded before setting it
+  loadView() {
+    return new Promise ((resolve, reject) => {
+      fetch(this._path)
+      .then((response) => response.text())
+      .then((data) => {
+        this._html = data;
+        resolve();
+      });
+    })
+  }
+
+  changeView() {
+    document.querySelector('#variable-content').innerHTML = this._html;
+  }
+}
+
 // All views objects
-var indexView = {
-  html: '',
-  path: './html/index-grid.html',
-}
+var indexView = new View('./html/index-grid.html');
+var listView = new View('./html/list-grid.html');
 
-var listView = {
-  html: '',
-  path: './html/list-grid.html',
-}
-
-// Variable content selector
-var variableContent = document.querySelector('#variable-content');
-
-// Listeners
+// Listeners (it needs a function -> that function call the class method)
 const addListeners = () => {
-  document.querySelector('.main-nav__logo').addEventListener('click', setIndexView);
-  document.querySelector('#dict').addEventListener('click', setListView);
-}
-
-// Common function to load views. It needs a promise to be sure data is loaded before setting it
-const loadView = (view) => {
-  return new Promise ((resolve, reject) => {
-    fetch(view.path)
-    .then((response) => response.text())
-    .then((data) => {
-      view.html = data;
-      resolve();
-    });
-  })
-}
-
-// Change view
-const changeView = (view) => {
-  variableContent.innerHTML = view.html;
-}
-
-// Change to index view
-const setIndexView = () => {
-  changeView(indexView);
-  console.log('Index view setted');
-}
-
-// Change to list view
-const setListView = () => {
-  changeView(listView);
+  document.querySelector('.main-nav__logo').addEventListener('click', () => indexView.changeView());
+  document.querySelector('#dict').addEventListener('click', () => listView.changeView());
 }
 
 // It's executed when page is loaded sucessfully
@@ -56,11 +48,10 @@ window.onload = () => {
   addListeners();
 
   // Init content
-  loadView(indexView)
+  indexView.loadView()
     .then(() => {
-      setIndexView();
+      indexView.changeView();
     })
-
-  // listView loaded after page is charged for first time
-  loadView(listView);
+  
+  listView.loadView();
 }
