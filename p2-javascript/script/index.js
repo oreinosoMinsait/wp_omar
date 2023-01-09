@@ -65,7 +65,8 @@ window.onload = () => {
   indexView.loadView()
     .then(() => {
       indexView.changeView();
-      setTimeout(() => alert('Bienvenido a Live 2 Play'), 2000); 
+      // TODO: uncomment timeout
+      // setTimeout(() => alert('Bienvenido a Live 2 Play'), 2000);
     })
   
   listView.loadView();

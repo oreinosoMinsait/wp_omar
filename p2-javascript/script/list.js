@@ -37,15 +37,25 @@ const uploadTable = (characters) => {
   let tableRows = '';
 
   characters.forEach((character) => {
-    console.log(character.name, character.image);
     tableRows += `
-      <tr class='list-grid__character'>
-        <td class='list-grid__character-img'>
+      <tr>
+        <td class="list-grid__table-img">
           <img src="${character.image}" alt="${character.name}">
         </td>
-        <td class='list-grid__character-name'>${character.name}</td>
+        <td class="list-grid__table-name">
+          <a class="list-grid__table-name-link" href="#">${character.name}</a>
+        </td>
       </tr>
     `
   })
   document.querySelector('tbody').innerHTML = tableRows;
+  
+  // Listener
+  listSelectors = document.querySelectorAll('.list-grid__table-name-link');
+
+  listSelectors.forEach((selector) => {
+    selector.addEventListener('click', () => {
+      alert('Vista detalle');
+    });
+  });
 }
