@@ -49,11 +49,11 @@ const readMore = () => {
   btnText.addEventListener('click', () => {
     if (dots.style.display === "none") {
       dots.style.display = "inline";
-      btnText.innerHTML = "Read more"; 
+      btnText.innerHTML = "Leer más"; 
       moreText.style.display = "none";
     } else {
       dots.style.display = "none";
-      btnText.innerHTML = "Read less"; 
+      btnText.innerHTML = "Leer menos"; 
       moreText.style.display = "inline";
     }
   });
@@ -91,8 +91,7 @@ window.onload = () => {
   indexView.loadView()
     .then(() => {
       indexView.changeView();
-      // TODO: uncomment timeout
-      // setTimeout(() => alert('Bienvenido a Live 2 Play'), 2000);
+      setTimeout(() => alert('Bienvenido a Live 2 Play'), 2000);
       readMore();
     })
   
