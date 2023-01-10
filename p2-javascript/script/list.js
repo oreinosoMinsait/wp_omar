@@ -49,13 +49,14 @@ const uploadTable = (characters) => {
     `
   })
   document.querySelector('tbody').innerHTML = tableRows;
-  
-  // Listener
+    
+  // Listeners (after printing table)
   listSelectors = document.querySelectorAll('.list-grid__table-name-link');
 
-  listSelectors.forEach((selector) => {
-    selector.addEventListener('click', () => {
-      alert('Vista detalle');
+  for (let i=0; i<listSelectors.length; i++) {
+    listSelectors[i].addEventListener('click', () => {
+      updateDetailView(charactersInfo[i]);
+      detailView.changeView();
     });
-  });
+  }
 }

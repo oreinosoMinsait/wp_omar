@@ -39,15 +39,41 @@ class View {
   }
 }
 
+// Read more button
+const readMore = () => {
+  var dots = document.querySelector('.index-grid__column-dots');
+  var moreText = document.querySelector('.index-grid__column-more');
+  var btnText = document.querySelector('.index-grid__read-more');
+
+  // Read more listener
+  btnText.addEventListener('click', () => {
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more"; 
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less"; 
+      moreText.style.display = "inline";
+    }
+  });
+}
+
 // Variables:
 var indexView = new View('index', './html/index-grid.html');
 var listView = new View('list', './html/list-grid.html');
+var detailView = new View();
 var currentView = '';
 var charactersInfo = [];
 
 // Listeners (it needs a function that calls the class method)
 const addListeners = () => {
-  document.querySelector('.main-nav__logo').addEventListener('click', () => indexView.changeView());
+  document.querySelector('.main-nav__logo').addEventListener('click', () => {
+    indexView.changeView();
+    readMore();
+    } 
+  );
+
   document.querySelector('#dict').addEventListener('click', () => {
     listView.changeView();
     uploadTable(charactersInfo);
@@ -58,7 +84,7 @@ const addListeners = () => {
 window.onload = () => {
   console.log('window onloaded');
 
-  // Init listeners
+  // Init listeners (only index.html)
   addListeners();
 
   // Init content
@@ -67,9 +93,12 @@ window.onload = () => {
       indexView.changeView();
       // TODO: uncomment timeout
       // setTimeout(() => alert('Bienvenido a Live 2 Play'), 2000);
+      readMore();
     })
   
   listView.loadView();
   getCharacters(5)
-    .then((characters) => charactersInfo = characters);
+    .then((characters) => {
+      charactersInfo = characters;
+    });
 }

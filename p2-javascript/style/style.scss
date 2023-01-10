@@ -90,6 +90,23 @@ body {
   margin: 5px 20px; // Same margin as columns
   padding: 0px 15px; // Same padding as columns
   color: #fbbb21;
+  font-size: 25px;
+}
+
+// Button configuration
+.index-grid__read-more {
+  display: flex;
+  max-width: 100px;
+  color: #fbbb21;
+  background: none;
+  border: none;
+  cursor: pointer;
+  // Mobile first
+  font-size: 12px;
+}
+
+.index-grid__column-more {
+  display: none;
 }
 
 .index-grid__content {
@@ -97,6 +114,16 @@ body {
   align-items: flex-start; // Align top, columns with different height
   // Mobile first
   flex-direction: column;
+}
+
+.index-grid__column:hover {
+  background: #004254;
+  color: #f6f8fa;
+}
+
+// h3 direct children of column
+.index-grid__column:hover > h3 {
+  color: #fbbb21;
 }
 
 .index-grid__column {
@@ -112,16 +139,8 @@ body {
   flex-direction: column;
 }
 
-.index-grid__row-title {
-  font-size: 25px;
-}
-
 .index-grid__column-title {
   font-size: 18px;
-}
-
-.index-grid__column a {
-  color: #fbbb21;
 }
 
 .index-grid__column-link a:visited {
@@ -177,18 +196,51 @@ body {
   color: #fbbb21;
 }
 
+// Detail view
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f6f8fa;
+  color: #004254;
+  padding: 20px;
+}
+
+.detail__img {
+  width: 150px;
+}
+
+.detail__img img {
+  max-width: 100%;
+}
+
+.detail__data {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail__data h2 {
+  font-size: 18px;
+  color: #fbbb21;
+  text-align: center;
+}
+
+
 // Footer
 .main-footer {
   display: flex;
   background-color: #004254;
   color: #fbbb21;
   align-items: center;
-  padding-top: 15px;
   // Mobile first
   flex-direction: column;
+  padding-top: 15px;
 }
 
 .main-footer__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   list-style: none;
   padding: 0;
 }
@@ -196,6 +248,14 @@ body {
 .main-footer a {
   color: #fbbb21;
   text-decoration: none;
+}
+
+.main-footer__list-item {
+  margin: 2px;
+}
+
+.main-footer__list-item-link img {
+  max-width: 24px;
 }
 
 
@@ -238,6 +298,10 @@ body {
     flex-direction: row;
   }
 
+  .index-grid__read-more {
+    font-size: 16px;
+  }
+
   // List view
   .list-grid__table {
     width: 50%;
@@ -247,6 +311,7 @@ body {
   .main-footer {
     flex-direction: row;
     justify-content: space-around;
+    padding-top: 0px;
   }
 }
 
