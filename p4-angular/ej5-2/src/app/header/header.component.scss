@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: darkgreen;
+  color: white;
+}
+
+header img {
+  max-width: 200px;
+}
+
+header h1 {
+  font-size: 30px;
+  margin: 20px 30px;
+}

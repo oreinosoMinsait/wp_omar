@@ -1,0 +1,18 @@
+<div class="grid">
+  <table class="list-grid__table">
+    <thead>
+        <tr>
+            <th class="list-grid__table-img">Nombre</th>
+            <th class="list-grid__table-name">Dificultad</th>
+            <th class="list-grid__table-name">Número jugadores</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of juegos">
+        <td>{{ juego.nombre }}</td>
+        <td>{{ juego.dificultad }}</td>
+        <td>{{ juego.nJugadores }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
