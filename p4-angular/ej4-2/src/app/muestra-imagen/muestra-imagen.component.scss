@@ -1,0 +1,13 @@
+.grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.grid__column {
+  display: column;
+  flex-direction: column;
+}
+
+img {
+  width: 100px;
+}

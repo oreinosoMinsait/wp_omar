@@ -1,0 +1,15 @@
+.galeria-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galeria-grid__row {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+}
+
+.galeria-grid__column {
+  margin: 0px 20px;
+}

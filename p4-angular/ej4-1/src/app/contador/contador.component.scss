@@ -1,0 +1,21 @@
+.contador {
+  display: flex;
+  flex-direction: row;
+}
+
+.contador__mensaje {
+  display: flex;
+  flex-direction: column;
+}
+
+.contador__mensaje-valor {
+  text-align: center;
+}
+
+.contador__mensaje-error {
+  color: red;
+}
+
+button {
+  margin: 30px;
+}

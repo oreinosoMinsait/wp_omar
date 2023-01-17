@@ -1,0 +1,16 @@
+<div class="grid">
+  <div class="grid__column">
+    <div class="grid__row" (click)="seleccionImagen(1)">
+      <p>Messi</p>
+    </div>
+    <div class="grid__row" (click)="seleccionImagen(2)">
+      <p>Ronaldo</p>
+    </div>
+    <div class="grid__row" (click)="seleccionImagen(3)">
+      <p>Mbappe</p>
+    </div>
+  </div>
+  <div class="grid__column">
+    <img [src]="imagenElegida" alt="Personaje">
+  </div>
+</div>

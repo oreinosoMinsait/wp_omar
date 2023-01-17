@@ -1,0 +1,19 @@
+.galeria-footer {
+  display: flex;
+  flex-direction: row;
+  background-color: darkgreen;
+  color: white;
+}
+
+.galeria-footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.galeria-footer__list {
+  list-style: none;
+}
+
+.galeria-footer__list img {
+  max-width: 24px;
+}
