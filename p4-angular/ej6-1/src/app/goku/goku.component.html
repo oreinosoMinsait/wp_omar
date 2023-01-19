@@ -1,0 +1,19 @@
+<p>Las ténicas de Goku son:</p>
+<ul>
+  <li *ngFor="let tech of gokuTechniquesGk">{{ tech.name }}</li>
+</ul>
+<p>Las técnicas aprendidas por Gohan son:</p>
+<ul>
+  <li *ngFor="let tech of gohanLearnedGk">{{ tech.name }}</li>
+</ul>
+<p>Las técnicas aprendidas por Videl son:</p>
+<ul>
+  <li *ngFor="let tech of videlLearnedGk">{{ tech.name }}</li>
+</ul>
+
+<p>----------------------------------------------------------------------</p>
+
+<app-gohan
+  [gohanTechniquesGh]="gohanTechniquesGk"
+  (emitGohanTechniqueGh)="addGohanLearnedGk($event)" (emitVidelTechniqueGh)="getVidelLearned($event)"
+></app-gohan>

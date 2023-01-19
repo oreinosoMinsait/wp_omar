@@ -1,0 +1,13 @@
+<p>Las técnicas de Gohan son:</p>
+<ul>
+  <li *ngFor="let tech of gohanTechniquesGh" (click)="sendNewGohanTechniqueGh(tech)">
+    {{ tech.name }}
+  </li>
+</ul>
+
+<p>----------------------------------------------------------------------</p>
+
+<app-videl
+  [videlTechniquesVd]="videlTechniquesGh"
+  (emitVidelTechniqueVd)="addVidelLearnedGh($event)"
+></app-videl>

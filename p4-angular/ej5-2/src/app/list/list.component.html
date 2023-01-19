@@ -8,11 +8,17 @@
         </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let juego of juegos">
+      <tr *ngFor="let juego of juegos; let index = index" (click)="clicked(index)" [ngStyle]="{'background': backgroundColors[index]}">
         <td>{{ juego.nombre }}</td>
         <td>{{ juego.dificultad }}</td>
         <td>{{ juego.nJugadores }}</td>
       </tr>
     </tbody>
   </table>
+  <div *ngIf="cantidadClicked > 0; else noclicks">
+    Se han pulsado {{ cantidadClicked }} elementos
+  </div>
+  <ng-template #noclicks>
+     No se ha pulsado ningún elemento
+  </ng-template>
 </div>

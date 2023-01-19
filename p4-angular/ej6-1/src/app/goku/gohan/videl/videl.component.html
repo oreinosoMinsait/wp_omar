@@ -1,0 +1,6 @@
+<p>Las técnicas de Videl son:</p>
+<ul>
+  <li *ngFor="let tech of videlTechniquesVd" (click)="sendNewVidelTechniqueVd(tech)">
+    {{ tech.name }}
+  </li>
+</ul>

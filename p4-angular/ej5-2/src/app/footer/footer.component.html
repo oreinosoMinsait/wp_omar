@@ -1,13 +1,17 @@
 <footer>
   <ul>
     <li>
-      <a href="https://twitter.com/BoardGameGeek" target="_blank">
-        Twitter
+      <a href="https://twitter.com/BoardGameGeek" target="_blank"
+        [ngClass]="{'seleccionado': selected[0] === true, 'noSeleccionado': selected[0] === false}"
+        (mouseenter)="onMouseEnter(0)" (mouseleave)="onMouseLeave(0)">
+          Twitter
       </a>
     </li>
     <li>
-      <a href="https://www.instagram.com/boardgamegeek/" target="_blank">
-        Instagram
+      <a href="https://www.instagram.com/boardgamegeek/" target="_blank"
+        [ngClass]="{'seleccionado': selected[1] === true, 'noSeleccionado': selected[1] === false}"
+        (mouseenter)="onMouseEnter(1)" (mouseleave)="onMouseLeave(1)">
+          Instagram
       </a>
     </li>
   </ul>

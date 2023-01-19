@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  selected: boolean[] = [false, false];
+
+  onMouseEnter(index: number) {
+    this.selected[index] = true;
+  }
+
+  onMouseLeave(index: number) {
+    this.selected[index] = false;
+  }
 }
