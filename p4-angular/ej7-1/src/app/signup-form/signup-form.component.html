@@ -1,0 +1,19 @@
+<h1>Formulario de registro:</h1>
+
+<form (submit)="onSubmit()" [formGroup]="fg">
+  <fieldset>
+    <label for="nombreId">Nombre:</label>
+    <input type="text" id="nombreId" formControlName="name">
+    <div class="error-campo" *ngIf="!fg.get('name')?.valid &&
+      (fg.get('name')?.dirty || submitted)">
+        El nombre no es correcto
+    </div>
+  </fieldset>
+
+  <fieldset>
+
+  </fieldset>
+
+  <button type="submit" [disabled]="!fg.valid">Submit</button>
+
+</form>
