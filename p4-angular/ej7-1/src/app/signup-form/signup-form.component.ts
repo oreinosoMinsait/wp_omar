@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormFields } from 'src/models/formFields';
-
-// El usuario deberá introducir de manera obligatoria los siguientes campos: nombre, nif, email, contraseña y aceptar la política de privacidad (checkbox).
-// De forma opcional el usuario podrá introducir: descripción (textarea), número de teléfono (number) y apellidos.
+import { comparePassword } from './comparePassword';
 
 @Component({
   selector: 'app-signup-form',
@@ -17,11 +15,18 @@ export class SignupFormComponent {
 
   constructor(private fb: FormBuilder) {
     this.fg = this. fb.group({
-      name: [''],
-      nif: [''],
-      email: [''],
-      password: [''],
-      adPolicy: [false],
+      firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
+      lastName: ['', [Validators.pattern('[a-zA-Z]+')]],
+      nif: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern('[0-9]+[a-zA-Z]')]],
+      email: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.minLength(9), Validators.maxLength(9), Validators.pattern('[0-9]+')]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('.*[0-9].*')]],
+      repeatPassword: ['', [Validators.required]],
+      description: [''],
+      adPolicy: ['', [Validators.requiredTrue]],
+    },
+    {
+      validator: comparePassword('password', 'repeatPassword')
     });
   }
 
@@ -35,5 +40,4 @@ export class SignupFormComponent {
       this.submitted = false;
     }
   }
-
 }
