@@ -11,6 +11,7 @@ import { comparePassword } from './comparePassword';
 export class SignupFormComponent {
 
   public fg: FormGroup;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   public submitted: boolean = false;
 
   constructor(private fb: FormBuilder) {
@@ -18,7 +19,7 @@ export class SignupFormComponent {
       firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],
       lastName: ['', [Validators.pattern('[a-zA-Z]+')]],
       nif: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern('[0-9]+[a-zA-Z]')]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.minLength(9), Validators.maxLength(9), Validators.pattern('[0-9]+')]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('.*[0-9].*')]],
       repeatPassword: ['', [Validators.required]],
@@ -36,6 +37,7 @@ export class SignupFormComponent {
 
     if(this.fg.valid) {
       const allData: FormFields = this.fg.value;
+      console.log(allData);
       this.fg.reset();
       this.submitted = false;
     }

@@ -5,7 +5,7 @@
   <fieldset>
     <label for="firstNameId">Nombre:</label>
     <input type="text" id="firstNameId" formControlName="firstName">
-    <div class="error-campo" *ngIf="!fg.get('firstName')?.valid &&
+    <div class="field-error" *ngIf="!fg.get('firstName')?.valid &&
       (fg.get('firstName')?.dirty || submitted)">
         El nombre no es correcto
     </div>
@@ -14,7 +14,7 @@
   <fieldset>
     <label for="lastNameId">Apellido:</label>
     <input type="text" id="lastNameId" formControlName="lastName">
-    <div class="error-campo" *ngIf="!fg.get('lastName')?.valid &&
+    <div class="field-error" *ngIf="!fg.get('lastName')?.valid &&
       (fg.get('lastName')?.dirty || submitted)">
         El apellido no es correcto
     </div>
@@ -24,7 +24,7 @@
   <fieldset>
     <label for="nifId">DNI:</label>
     <input type="text" id="nifId" formControlName="nif">
-    <div class="error-campo" *ngIf="!fg.get('nif')?.valid &&
+    <div class="field-error" *ngIf="!fg.get('nif')?.valid &&
       (fg.get('nif')?.dirty || submitted)">
         El DNI tiene que tener 8 dígitos y una letra
     </div>
@@ -34,7 +34,7 @@
   <fieldset>
     <label for="emailId">Email:</label>
     <input type="email" id="emailId" formControlName="email">
-    <div class="error-campo" *ngIf="!fg.get('email')?.valid &&
+    <div class="field-error" *ngIf="!fg.get('email')?.valid &&
       (fg.get('email')?.dirty || submitted)">
         El email no es correcto
     </div>
@@ -44,7 +44,7 @@
   <fieldset>
     <label for="passwordId">Contraseña:</label>
     <input type="password" id="passwordId" formControlName="password">
-    <div class="error-campo" *ngIf="!fg.get('password')?.valid &&
+    <div class="field-error" *ngIf="!fg.get('password')?.valid &&
       (fg.get('password')?.dirty || submitted)">
         La contraseña debe tener al menos 6 caracteres con al menos un número
     </div>
@@ -53,7 +53,7 @@
   <fieldset>
     <label for="repeatPasswordId">Repetir contraseña:</label>
     <input type="password" id="repeatPasswordId" formControlName="repeatPassword">
-    <div class="error-campo" *ngIf="myVar1">
+    <div class="field-error" *ngIf="this.fg.value.password !== this.fg.value.repeatPassword">
         La contraseña no coincide
     </div>
   </fieldset>
@@ -62,7 +62,7 @@
   <fieldset>
     <label for="phoneNumberId">Número teléfono:</label>
     <input type="tel" id="phoneNumberId" formControlName="phoneNumber">
-    <div class="error-campo" *ngIf="!fg.get('phoneNumber')?.valid &&
+    <div class="field-error" *ngIf="!fg.get('phoneNumber')?.valid &&
       (fg.get('phoneNumber')?.dirty || submitted)">
         El teléfono tiene que tener 9 cifras. Hay que introducirlo sin el código de país (+34)
     </div>
@@ -79,7 +79,7 @@
   <fieldset>
     <label for="adPolicyId">Política privacidad:</label>
     <input type="checkbox" id="adPolicyId" formControlName="adPolicy">
-    <div class="error-campo" *ngIf="!fg.get('adPolicy')?.valid &&
+    <div class="field-error" *ngIf="!fg.get('adPolicy')?.valid &&
       (fg.get('adPolicy')?.dirty || submitted)">
         Debes aceptar la política de privacidad
     </div>
