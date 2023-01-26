@@ -1,44 +1,52 @@
-interface nameI {
-  name_USen: string;
-  name_EUen: string;
-  name_EUde: string;
-  name_EUes: string;
-  name_USes: string;
-  name_EUfr: string;
-  name_USfr: string;
-  name_EUit: string;
-  name_EUnl: string;
-  name_CNzh: string;
-  name_TWzh: string;
-  name_JPja: string;
-  name_KRko: string;
-  name_EUru: string;
+interface NameI {
+  'name-USen': string;
+  'name-EUen': string;
+  'name-EUde': string;
+  'name-EUes': string;
+  'name-USes': string;
+  'name-EUfr': string;
+  'name-USfr': string;
+  'name-EUit': string;
+  'name-EUnl': string;
+  'name-CNzh': string;
+  'name-TWzh': string;
+  'name-JPja': string;
+  'name-KRko': string;
+  'name-EUru': string;
 }
 
-interface availabilityI {
-  month_northern: string;
-  month_southern: string;
+interface AvailabilityI {
+  'month-northern': string;
+  'month-southern': string;
   time: string;
   isAllDay: boolean;
   isAllYear: boolean;
   location: string;
   rarity: string;
-  month_array_northern: number[];
-  month_array_southern: number[];
-  time_array: number[];
+  'month-array-northern': number[];
+  'month-array-southern': number[];
+  'time-array': number[];
 }
 
-export interface animalI {
+export interface CompleteAnimalI {
   id: number;
-  file_name: string;
-  name: nameI;
-  name_EUes: string
-  avalability: availabilityI;
+  'file-name': string;
+  name: NameI;
+  availability: AvailabilityI;
   shadow: string;
   price: number;
-  price_cj: number;
-  catch_phrase: string;
-  museu_phrase: string;
+  'price-cj': number;
+  'catch-phrase': string;
+  'museu-phrase': string;
   image_uri: string;
   icon_uri: string;
+}
+
+export interface AnimalI {
+  id: number;
+  name_EUes: string;
+  catch_phrase: string;
+  rarity: string;
+  price: number;
+  image_uri: string;
 }

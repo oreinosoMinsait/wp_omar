@@ -1,1 +1,18 @@
-<p>list works!</p>
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Catch phrase</th>
+    <th>Rarity</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let animal of animals; let index = index" (click)="selectAnimal(animal.id)">
+    <td>
+      <img [src]="animal.image_uri" [alt]="animal.name_EUes">
+    </td>
+    <td>{{ animal.name_EUes }}</td>
+    <td>{{ animal.catch_phrase }}</td>
+    <td>{{ animal.rarity }}</td>
+    <td>{{ animal.price }}</td>
+  </tr>
+</table>
