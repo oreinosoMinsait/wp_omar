@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { animalI } from 'src/app/models/animals.interface';
 import { RequestAnimalsService } from 'src/app/services/request-animals.service';
 
@@ -9,12 +10,14 @@ import { RequestAnimalsService } from 'src/app/services/request-animals.service'
 })
 export class ListComponent {
   public animals: animalI[] = [];
-  public whatever: any;
 
   constructor(private requestAnimalsS: RequestAnimalsService) {}
 
   ngOnInit() {
-    this.whatever = this.requestAnimalsS.getAllAnimals().subscribe();
-    console.log(this.whatever);
+    this.animals = this.requestAnimalsS.getAllAnimals().subscribe(
+      (data: animalI[]) => {
+        console.log(data);
+      }
+    );
   }
 }
