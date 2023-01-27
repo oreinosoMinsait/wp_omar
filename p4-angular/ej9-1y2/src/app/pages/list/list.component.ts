@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CompleteAnimalI, AnimalI } from 'src/app/models/animals.interface';
 import { RequestAnimalsService } from 'src/app/services/request-animals.service';
@@ -8,7 +9,7 @@ import { RequestAnimalsService } from 'src/app/services/request-animals.service'
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   public animals: AnimalI[] = [];
 
   constructor(
@@ -37,7 +38,7 @@ export class ListComponent {
 
   selectAnimal(id: number): void {
     this.requestAnimalsS.getSpecificAnimal(id).subscribe()
-    //this.router.navigate(['/user-list']);
+    this.router.navigate(['/animal-detail', id]);
     console.log(id);
   }
 }
