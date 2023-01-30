@@ -1,0 +1,54 @@
+<h1>Ejercicio 11-2 pipes</h1>
+
+<input
+  class="list__input"
+  type="text"
+  [(ngModel)]="filterInput"
+  placeholder="Texto del filtro"
+>
+
+<input
+  class="list__radio"
+  type="radio"
+  id="nameId"
+  [formControl]="filterSelector"
+  value="name"
+>
+<label
+  class="list__label"
+  for="nameId"
+>Nombre</label>
+
+<input
+  class="list__radio"
+  type="radio"
+  id="muscleId"
+  [formControl]="filterSelector"
+  value="muscle"
+>
+<label
+  class="list__label"
+  for="muscleId"
+>Músculo</label>
+
+<input
+  class="list__radio"
+  type="radio"
+  id="equipmentId"
+  [formControl]="filterSelector"
+  value="equipment"
+>
+<label
+  class="list__label"
+  for="equipmentId"
+>Equipamiento adicional</label>
+
+<div class="list__filtered">
+  <ul>
+    <li *ngFor="let exercise of (exercisesList | filterExercises:filterSelector.value:filterInput)">
+      <h4>{{ exercise.name }}</h4>
+      <p>{{ exercise.muscle }}</p>
+      <p>{{ exercise.equipment }}</p>
+    </li>
+  </ul>
+</div>
